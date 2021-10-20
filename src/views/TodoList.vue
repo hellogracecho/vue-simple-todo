@@ -69,8 +69,8 @@ export default {
       this.reOrderList();
     },
     reOrderList: function() {
+      // order by unchecked todos first followed by completed ones
       this.todoList.sort(function(x, y) {
-        // false values first
         return x.isChecked === y.isChecked ? 0 : x.isChecked ? 1 : -1;
       });
     },
@@ -93,6 +93,22 @@ export default {
     display: flex;
     input {
       flex-grow: 1;
+      height: 30px;
+      padding: 5px 10px;
+    }
+    button {
+      cursor: pointer;
+      background-color: #00c400;
+      border: transparent;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 4px;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #0d9b0d;
+      }
     }
   }
 }
