@@ -2,19 +2,24 @@
   <div class="todo-list">
     <h1>✅ TODO List</h1>
     <div class="todo-list_add">
-      <input v-model.trim="newTodo" type="text" placeholder="Add new todo" />
+      <input
+        @keyup.enter="addTodo(newTodo)"
+        v-model.trim="newTodo"
+        type="text"
+        placeholder="Add new todo"
+      />
       <button @click="addTodo(newTodo)">Add</button>
     </div>
     <ul>
       <TodoItem
         @clicked="onClickChild"
-        v-for="item in groceryList"
+        v-for="item in todoList"
         :todo="item"
         :key="item.id"
       ></TodoItem>
     </ul>
     <p>Raw Data:</p>
-    <pre>{{ JSON.stringify(groceryList) }}</pre>
+    <pre>{{ JSON.stringify(todoList) }}</pre>
   </div>
 </template>
 
@@ -30,7 +35,7 @@ export default {
   props: ['checkedTodo'],
   data() {
     return {
-      groceryList: [
+      todoList: [
         { id: 0, text: 'Wake up in the morning', isChecked: false },
         { id: 1, text: 'Brush my teeth', isChecked: false },
         { id: 2, text: 'Wash your face', isChecked: false },
@@ -46,15 +51,25 @@ export default {
       }
       let uid = Date.now();
 
-      this.groceryList.push({ id: uid, text: newTodo, isChecked: false });
+      this.todoList.push({ id: uid, text: newTodo, isChecked: false });
+      // re-order list by Unchecked to Checked
+      this.reOrderList();
       this.newTodo = '';
     },
     onClickChild(selectedItem) {
-      // console.log(selectedItem.id);
-      this.groceryList.forEach((item) => {
+      // update data
+      this.todoList.forEach((item) => {
         if (item.id === selectedItem.id) {
           item.isChecked = selectedItem.isChecked;
         }
+      });
+      // re-order list by Unchecked to Checked
+      this.reOrderList();
+    },
+    reOrderList: function() {
+      this.todoList.sort(function(x, y) {
+        // false values first
+        return x.isChecked === y.isChecked ? 0 : x.isChecked ? 1 : -1;
       });
     },
   },
