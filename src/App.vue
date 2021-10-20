@@ -6,17 +6,17 @@
   <router-view />
 </template>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Courier New, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #1a1a1a;
   padding: 0 30px;
 }
 
 #nav {
+  text-align: center;
   padding: 30px;
 }
 

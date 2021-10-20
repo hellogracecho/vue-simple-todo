@@ -19,7 +19,7 @@
       ></TodoItem>
     </ul>
     <p>Raw Data:</p>
-    <pre>{{ JSON.stringify(todoList) }}</pre>
+    <pre>{{ JSON.stringify(todoList, null, ' ') }}</pre>
   </div>
 </template>
 

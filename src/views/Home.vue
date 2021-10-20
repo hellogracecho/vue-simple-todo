@@ -15,5 +15,6 @@ export default {
 <style scoped lang="scss">
 .logo {
   font-size: 20rem;
+  text-align: center;
 }
 </style>
