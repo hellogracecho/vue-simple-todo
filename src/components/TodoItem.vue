@@ -34,6 +34,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+input {
+  cursor: pointer;
+}
+
 [type='checkbox']:after {
   content: attr(value);
   margin: -1px 0 0 18px;
