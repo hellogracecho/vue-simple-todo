@@ -18,7 +18,6 @@
         :key="item.id"
       ></TodoItem>
     </ul>
-    <p>Raw Data:</p>
     <pre>{{ JSON.stringify(todoList, null, ' ') }}</pre>
   </div>
 </template>
@@ -95,9 +94,17 @@ export default {
       flex-grow: 1;
       height: 30px;
       padding: 5px 10px;
+      margin-right: 10px;
+      border-radius: 4px;
+      border: 1px solid #00c400;
+      &:focus {
+        outline: none !important;
+        box-shadow: 0 0 2px #00c400;
+      }
     }
     button {
       cursor: pointer;
+      padding: 10px 20px;
       background-color: #00c400;
       border: transparent;
       color: #fff;
@@ -111,5 +118,11 @@ export default {
       }
     }
   }
+}
+pre {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #262626;
+  color: #fff;
 }
 </style>

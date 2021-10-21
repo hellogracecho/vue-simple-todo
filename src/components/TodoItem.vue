@@ -5,6 +5,7 @@
       :id="todo.id"
       :value="todo.text"
       @click="onEmitTodo"
+      :class="{ checked: isChecked }"
     />
     <!-- <label :class="{ checked: isChecked }" for="{{ todo.id }}">{{
       todo.text
@@ -47,6 +48,6 @@ input {
 }
 
 .checked {
-  text-decoration: line-through;
+  color: #606060;
 }
 </style>
