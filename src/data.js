@@ -4,5 +4,5 @@ export const todoList = [
     { id: 2, text: 'Wash your face', isChecked: false },
     { id: 3, text: 'Eat breakfast', isChecked: false },
     { id: 4, text: 'Do laundry', isChecked: false },
-    { id: 5, text: 'Run Vacuum?!', isChecked: false },
+    { id: 5, text: 'Run Vacuum?! stash 2', isChecked: false },
 ]
