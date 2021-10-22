@@ -14,7 +14,7 @@
       <TodoItem
         @clicked="onClickChild"
         @removed="onRemoveTodo"
-        v-for="item in todoList"
+        v-for="item in reversedList"
         :todo="item"
         :key="item.id"
       ></TodoItem>
@@ -74,8 +74,13 @@ export default {
     reOrderList: function() {
       // order by unchecked todos first followed by completed ones
       this.todoList.sort(function(x, y) {
-        return x.isChecked === y.isChecked ? 0 : x.isChecked ? 1 : -1;
+        return x.isChecked === y.isChecked ? 0 : x.isChecked ? -1 : 1;
       });
+    },
+  },
+  computed: {
+    reversedList() {
+      return [...this.todoList].reverse();
     },
   },
 };
